@@ -64,9 +64,17 @@ while True:
             print((each["narrative"]) + " (" +
                   str("{:.2f}".format((each["distance"])*1.61) + " km)"))
         print("=============================================\n")
-        print()
-       
-        print()
+        
+        print("=============================================\n")
+        print("Other Miscellaneous Information:")
+        print("Will I encounter any toll road? " , (json_data["route"]["hasTollRoad"]))
+        print("Will I encounter any bridge? " , (json_data["route"]["hasBridge"]))
+        print("Will I encounter any tunnel? " , (json_data["route"]["hasTunnel"]))
+        print("Will I encounter any highway? " , (json_data["route"]["hasHighway"]))
+        print("Is there any access restriction? " , (json_data["route"]["hasAccessRestriction"]))
+        print("Is there any seasonal closure? " , (json_data["route"]["hasSeasonalClosure"]))
+        print("Is there any country cross? " , (json_data["route"]["hasCountryCross"]))
+        print("=============================================\n")
     elif json_status == 402:
         print("_____________________________________________________________________")
         print("Status Code: " + str(json_status) +
