@@ -16,11 +16,12 @@ while True:
     print("URL: " + (url))
     json_data = requests.get(url).json()
     json_status = json_data["info"]["statuscode"]
+
     if json_status == 0:
         print("API Status: " + str(json_status) +
               " = A successful route call.\n")
         
-        print("=====================================================================")
+        print("===============================================================================")
         
         print((orig) + " Information")
         print("Country: " + (json_data["route"]["locations"][0]["adminArea1"]))
@@ -28,15 +29,15 @@ while True:
         print("Type: " + (json_data["route"]["locations"][0]["geocodeQuality"]))
         print("Geo Quality Code: "+(json_data["route"]["locations"][0]["geocodeQualityCode"]))
 
-        print("=====================================================================")
+        print("===============================================================================")
         print((dest) + " Information")
         print("Country: " + (json_data["route"]["locations"][1]["adminArea1"]))
         print("Province: " + (json_data["route"]["locations"][1]["adminArea3"]))
         print("Type: " + (json_data["route"]["locations"][1]["geocodeQuality"]))
         print("Geo Quality Code: "+(json_data["route"]["locations"][1]["geocodeQualityCode"]))
         
-        print("=====================================================================")
-        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+        print("===============================================================================")
+        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
         
         print("Directions from " + (orig) + " to " + (dest))
         print()
@@ -57,16 +58,16 @@ while True:
         print("Fuel Used (Ltr): " +
               str("{:.2f}".format((json_data["route"]["fuelUsed"])*3.78)))
         
-        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-        print("=====================================================================")
+        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+        print("===============================================================================")
         
         for each in json_data["route"]["legs"][0]["maneuvers"]:
             print((each["narrative"]) + " (" +
                   str("{:.2f}".format((each["distance"])*1.61) + " km)"))
-        print("=============================================\n")
+        print("===============================================================================\n")
         
-        print("=============================================\n")
-        print("Other Miscellaneous Information:")
+        print("===============================================================================\n")
+        print("Other Miscellaneous Information:\n")
         print("Will I encounter any toll road? " , (json_data["route"]["hasTollRoad"]))
         print("Will I encounter any bridge? " , (json_data["route"]["hasBridge"]))
         print("Will I encounter any tunnel? " , (json_data["route"]["hasTunnel"]))
@@ -74,27 +75,27 @@ while True:
         print("Is there any access restriction? " , (json_data["route"]["hasAccessRestriction"]))
         print("Is there any seasonal closure? " , (json_data["route"]["hasSeasonalClosure"]))
         print("Is there any country cross? " , (json_data["route"]["hasCountryCross"]))
-        print("=============================================\n")
+        print("===============================================================================\n")
     elif json_status == 402:
-        print("_____________________________________________________________________")
+        print("_________________________________________________________________________________")
         print("Status Code: " + str(json_status) +
               "; Invalid user inputs for one or both locations.")
-        print("___________________________________________________________________\n")
+        print("_________________________________________________________________________________\n")
     elif json_status == 611:
-        print("_____________________________________________________________________")
+        print("_________________________________________________________________________________\n")
         print("Status Code: " + str(json_status) +
               "; Missing an entry for one or both locations.")
-        print("___________________________________________________________________\n")
+        print("_________________________________________________________________________________\n")
     elif json_status == 602:
-        print("_____________________________________________________________________")
+        print("_________________________________________________________________________________")
         print("Status Code: " + str(json_status) + "; The route failed, normally due to mustAvoidLinkIds options being set in a way that makes the route impossible.")
-        print("___________________________________________________________________\n")
+        print("_________________________________________________________________________________\n")
     elif json_status == 500:
-        print("_____________________________________________________________________")
+        print("_________________________________________________________________________________")
         print("Status Code: " + str(json_status) + "; Unknown error.")
-        print("___________________________________________________________________\n")
+        print("_________________________________________________________________________________\n")
     else:
-        print("_____________________________________________________________________")
+        print("_________________________________________________________________________________")
         print("For Staus Code: " + str(json_status) + "; Refer to:")
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
-        print("___________________________________________________________________\n")
+        print("_________________________________________________________________________________\n")
