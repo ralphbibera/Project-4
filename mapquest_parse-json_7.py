@@ -48,6 +48,26 @@ while True:
         print("Status Code: " + str(json_status) +
               "; Missing an entry for one or both locations.")
         print("**********************************************\n")
+    elif json_status == 603:
+        print("")
+        print("Status Code: " + str(json_status) + "; No dataset found to calculate the route.")
+        print("\n")
+    elif json_status == 609:
+        print("")
+        print("Status Code: " + str(json_status) + "; Exceeded maximum gross distance for locations..")
+        print("\n")
+    elif json_status == 612:
+        print("")
+        print("Status Code: " + str(json_status) + "; No routes available for location..")
+        print("\n")
+    elif json_status == 602:
+        print("")
+        print("Status Code: " + str(json_status) + "; The route failed, normally due to mustAvoidLinkIds options being set in a way that makes the route impossible.")
+        print("\n")
+    elif json_status == 500:
+        print("")
+        print("Status Code: " + str(json_status) + "; Unknown error.")
+        print("\n")
     else:
         print("************************************************************************")
         print("For Staus Code: " + str(json_status) + "; Refer to:")
