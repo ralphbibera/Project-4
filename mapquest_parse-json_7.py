@@ -5,12 +5,12 @@ main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "Kf4MrxBifKdgiInGG6N7bWMA46ACtFPx"
 
 print("===============================================================================") 
-print("                                    MAP QUEST")
-print("                                   by: GROUP V")
+print("                               MAP QUEST")
+print("                              by: GROUP V")
 print("===============================================================================") 
 while True:
     #User input for the location & destination and validation of inputs.
-    orig = input("\nStarting Location: ")
+    orig = input("\nStarting Location: ")                                       #Fix: Should not accept integer or numeric input
     if orig == "quit" or orig == "q":
         print("\nProgram Terminated.")
         break
@@ -20,7 +20,7 @@ while True:
         print("\nProgram Terminated.\n")
         break
     
-    if (orig.isnumeric() or dest.isnumeric())== False:
+    if (orig.isnumeric() or dest.isnumeric())== False:                         #Fixed: added condition for numeric input                  
         #Generation and printing of URL
         url = main_api + \
             urllib.parse.urlencode({"key": key, "from": orig, "to": dest})
@@ -35,16 +35,16 @@ while True:
             print("===============================================================================") 
             print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")   
             print((orig) + " Information:\n")
-            print("Country: " + (json_data["route"]["locations"][0]["adminArea1"]))
-            print("Province: " + (json_data["route"]["locations"][0]["adminArea3"]))
-            print("Type: " + (json_data["route"]["locations"][0]["geocodeQuality"]))
+            print("Country: " + (json_data["route"]["locations"][0]["adminArea1"]))                         #fix error: list indices must be intergers or slices, not str
+            print("Province: " + (json_data["route"]["locations"][0]["adminArea3"]))                        #fixed: added array
+            print("Type: " + (json_data["route"]["locations"][0]["geocodeQuality"]))                        #[0] - origin
             print("Geo Quality Code: "+(json_data["route"]["locations"][0]["geocodeQualityCode"]))
             #Destination information
             print("===============================================================================")
             print((dest) + " Information:\n")
-            print("Country: " + (json_data["route"]["locations"][1]["adminArea1"]))
-            print("Province: " + (json_data["route"]["locations"][1]["adminArea3"]))
-            print("Type: " + (json_data["route"]["locations"][1]["geocodeQuality"]))
+            print("Country: " + (json_data["route"]["locations"][1]["adminArea1"]))                         #fix error: list indices must be intergers or slices, not str
+            print("Province: " + (json_data["route"]["locations"][1]["adminArea3"]))                        #fixed: added array
+            print("Type: " + (json_data["route"]["locations"][1]["geocodeQuality"]))                        #[1] - destination
             print("Geo Quality Code: "+(json_data["route"]["locations"][1]["geocodeQualityCode"]))
             print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
             print("===============================================================================")
@@ -52,11 +52,11 @@ while True:
             #Printing of the directions from the origin to the destination
             print("Directions from " + (orig) + " to " + (dest))
             print()
-            #GPS coordinates
-            print("GPS Coordinate of Origin: \nLongitude: " +
-                str(json_data["route"]["boundingBox"]["ul"]["lng"]) + ", \nLatitude: " + str(json_data["route"]["boundingBox"]["ul"]["lat"]))
+            #GPS coordinates 
+            print("GPS Coordinate of Origin: \nLongitude: " +       
+                str(json_data["route"]["boundingBox"]["ul"]["lng"]) + ", \nLatitude: " + str(json_data["route"]["boundingBox"]["ul"]["lat"]))          #longitude working, add latitude
             print("\nGPS Coordinate of Destination: \nLongitude: " +
-                str(json_data["route"]["boundingBox"]["lr"]["lng"]) + ", \nLatitude: " + str(json_data["route"]["boundingBox"]["lr"]["lat"]))
+                str(json_data["route"]["boundingBox"]["lr"]["lng"]) + ", \nLatitude: " + str(json_data["route"]["boundingBox"]["lr"]["lat"]))          #latitude added
             #Printing of travel information
             print()
             print("Trip Duration: " + (json_data["route"]["formattedTime"]))
@@ -85,12 +85,12 @@ while True:
             print("Will I encounter any bridge? " , (json_data["route"]["hasBridge"]))
             print("Will I encounter any tunnel? " , (json_data["route"]["hasTunnel"]))
             print("Will I encounter any highway? " , (json_data["route"]["hasHighway"]))
-            print("Is there any access restriction? " , (json_data["route"]["hasAccessRestriction"]))
+            print("Is there any access restriction? " , (json_data["route"]["hasAccessRestriction"]))             #added some other miscellaneous information
             print("Is there any seasonal closure? " , (json_data["route"]["hasSeasonalClosure"]))
             print("Is there any country cross? " , (json_data["route"]["hasCountryCross"]))
             print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
             print("===============================================================================")
-        #Unsuccessful route call (error codes)
+        #Unsuccessful route call (error codes)                                                                    #done fixing the output
         elif json_status == 402:
             print("***Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.***")
         elif json_status == 611:
@@ -102,5 +102,5 @@ while True:
         else:
             print("***For Staus Code: " + str(json_status) + "; Refer to: https://developer.mapquest.com/documentation/directions-api/status-codes***")
     else:
-        print("***Invalid input. Input must be a string.***")
+        print("***Invalid input. Input must be a string.***")                                                   #output if the inputted values are integer or numeric
         continue
