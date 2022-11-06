@@ -1,6 +1,5 @@
 import pytest
 
-
 import urllib.parse
 import requests
 from colored import fg
