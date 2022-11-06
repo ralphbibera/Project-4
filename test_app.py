@@ -159,8 +159,5 @@ while True:
 
 
 # test area
-def correctStatus():
-    return 0
-
 def test_app():
-    assert correctStatus() == json_status
+    assert 0 == json_status
