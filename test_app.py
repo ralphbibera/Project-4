@@ -1,4 +1,3 @@
-import pytest 
 from app import enterInput
 from tud_test_base import set_keyboard_input, get_display_output
 
