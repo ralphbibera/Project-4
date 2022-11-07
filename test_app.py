@@ -20,10 +20,12 @@ def test_3():
       
       assert output == "EXIT"
 
-def test_3():
+def test_4():
       output = checkInput("222", "123")
       
       assert output == "NUMERIC"
+
+
       
 
 
