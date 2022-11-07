@@ -9,3 +9,9 @@ def test_1():
       output = get_display_output()
 
       assert output == ['\033[1m' + "\nStarting Location: " + '\033[0m','\033[1m' + "Destination: "  + '\033[0m',"\nProgram Terminated."]
+
+
+def test_2():
+      assert 0 == 1
+
+      
