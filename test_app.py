@@ -8,7 +8,7 @@ def test_1():
 
       output = get_display_output()
 
-      assert output == ['\033[1m' + "\nStarting Location: " + '\033[0m','\033[1m' + "Destination: "  + '\033[0m',"\nProgram Terminated."]
+      assert output == ['\033[1m' + "\nStarting Location: Manila" + '\033[0m','\033[1m' + "Destination: Q"  + '\033[0m',"\nProgram Terminated."]
 
 
 def test_2():
