@@ -49,6 +49,7 @@ while True:
         # Json data request
         json_data = requests.get(url).json()
         json_status = json_data["info"]["statuscode"]
+
         # Successful route call
         if json_status == 0:
             print("API Status: " + str(json_status) +
