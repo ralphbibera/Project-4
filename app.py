@@ -16,6 +16,7 @@ color4 = fg('light_sky_blue_3b')
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "Kf4MrxBifKdgiInGG6N7bWMA46ACtFPx"
 
+
 print()
 print(color1 + back1 +
       '\033[1m' + "                               MAP QUEST                                       " + '\033[0m')
@@ -159,3 +160,7 @@ while True:
         print(
             color3 + '\033[1m' + "***Invalid input. Input must be a string.***" + '\033[0m')
         continue
+
+
+if __name__ == "__main__":
+    enterInput()
