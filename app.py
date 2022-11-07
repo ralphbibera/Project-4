@@ -20,14 +20,24 @@ print()
 print(color1 + back1 + '\033[1m' + "                               MAP QUEST                                       " + '\033[0m')
 print(color1 + back1 + '\033[1m' + "                              by: GROUP V                                      " + '\033[0m')
 
+
+
+
+def enterInput():
+    orig = input(color2 + '\033[1m' + "\nStarting Location: " + '\033[0m')                                       #Fix: Should not accept integer or numeric input
+    dest = input(color2 + '\033[1m' + "Destination: "  + '\033[0m')
+    print()
+    return orig, dest
+
+
+
 while True:
     #User input for the location & destination and validation of inputs.
-    orig = input(color2 + '\033[1m' + "\nStarting Location: " + '\033[0m')                                       #Fix: Should not accept integer or numeric input
+    orig, dest = enterInput()
+    
     if orig == "quit" or orig == "q":                                                                   #Bold Text: '\033[0m'
         print("\nProgram Terminated.")
         break
-    dest = input(color2 + '\033[1m' + "Destination: "  + '\033[0m')
-    print()
     if dest == "quit" or dest == "q":
         print("\nProgram Terminated.\n")
         break
