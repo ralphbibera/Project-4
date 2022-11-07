@@ -8,9 +8,6 @@ def test_1():
 
       output = get_display_output()
 
-      assert output == ["Starting Location: Manila","Destination: Q","Program Terminated."]
+      assert output == ["Starting Location: ","Destination: "]
 
-
-def test_2():
-      assert 0 == 1
 
