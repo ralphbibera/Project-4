@@ -124,6 +124,18 @@ def routeCall(orig, dest, json_status, color3, color4, json_data):
                 "===============================================================================")
 
 
+    elif json_status == 402:
+        print(color3 + '\033[1m' + "***Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.***" + '\033[0m')
+    elif json_status == 611:
+        print(color3 + '\033[1m' + "***Status Code: " + str(json_status) + "; Missing an entry for one or both locations.***" + '\033[0m')
+    elif json_status == 602:
+        print(color3 + '\033[1m' + "***Status Code: " + str(json_status) + "; The route failed, normally due to mustAvoidLinkIds options being set in a way that makes the route impossible.***" + '\033[0m')
+    elif json_status == 500:
+        print(color3 + '\033[1m' + "***Status Code: " + str(json_status) + "; Unknown error.***" + '\033[0m')
+    else:
+        print("***For Staus Code: " + str(json_status) + "; Refer to: https://developer.mapquest.com/documentation/directions-api/status-codes***")        
+
+
 if __name__ == "__main__":
 
     while True:
@@ -138,7 +150,7 @@ if __name__ == "__main__":
     
                 json_data = requests.get(url).json()
                 json_status = json_data["info"]["statuscode"]
-                
+
                 routeCall(orig, dest, json_status, color3, color4, json_data)
             case "NUMERIC":
                 print("Invalid input. Input must be a string.")
