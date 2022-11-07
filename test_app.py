@@ -11,11 +11,7 @@ def test_1():
 
 
 def test_2():
-      set_keyboard_input(["Manila","Q"])
-
-      orig, dest = enterInput()
-
-      output = checkInput(orig, dest)
+      output = checkInput("quit", "q")
       
       assert output == "EXIT"
       
