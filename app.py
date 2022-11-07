@@ -17,11 +17,11 @@ main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "Kf4MrxBifKdgiInGG6N7bWMA46ACtFPx"
 
 
-print()
-print(color1 + back1 +
-      '\033[1m' + "                               MAP QUEST                                       " + '\033[0m')
-print(color1 + back1 +
-      '\033[1m' + "                              by: GROUP V                                      " + '\033[0m')
+# print()
+# print(color1 + back1 +
+#       '\033[1m' + "                               MAP QUEST                                       " + '\033[0m')
+# print(color1 + back1 +
+#       '\033[1m' + "                              by: GROUP V                                      " + '\033[0m')
 
 
 def enterInput():
