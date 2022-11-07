@@ -11,7 +11,7 @@ def test_1():
 
 
 def test_2():
-      orig = "Manila"
+      orig, dest = enterInput()
       output = checkInput()
       assert output == "EXIT"
       
