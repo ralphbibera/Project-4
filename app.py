@@ -26,7 +26,6 @@ print(color1 + back1 + '\033[1m' + "                              by: GROUP V   
 def enterInput():
     orig = input(color2 + '\033[1m' + "\nStarting Location: " + '\033[0m')                                       #Fix: Should not accept integer or numeric input
     dest = input(color2 + '\033[1m' + "Destination: "  + '\033[0m')
-    print()
     return orig, dest
 
 
