@@ -1,3 +1,4 @@
+import pytest 
 from app import enterInput
 from tud_test_base import set_keyboard_input, get_display_output
 
@@ -14,4 +15,3 @@ def test_1():
 def test_2():
       assert 0 == 1
 
-      
