@@ -13,7 +13,7 @@ def test_1():
 def test_2():
       set_keyboard_input(["Manila","Q"])
       orig, dest = enterInput()
-      output = checkInput()
+      output = checkInput(orig,dest)
       assert output == "EXIT"
       
 
