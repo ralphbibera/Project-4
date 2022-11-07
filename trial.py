@@ -25,7 +25,7 @@ def enterInput():
     return orig, dest
 
 
-def checkInput():
+def checkInput(orig, dest):
     if orig == "quit" or orig == "q" or dest == "quit" or dest == "q":
         return "EXIT"
     if (orig.isnumeric() or dest.isnumeric()) == True:
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
     while True:
         orig, dest = enterInput()
-        x = checkInput()
+        x = checkInput(orig, dest)
 
         match x:
             case None:
