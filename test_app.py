@@ -14,6 +14,16 @@ def test_2():
       output = checkInput("quit", "q")
       
       assert output == "EXIT"
+
+def test_3():
+      output = checkInput("222", "q")
+      
+      assert output == "EXIT"
+
+def test_3():
+      output = checkInput("222", "123")
+      
+      assert output == "NUMERIC"
       
 
 
